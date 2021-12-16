@@ -20,35 +20,40 @@
         <form class="col-4 border">
             <div class="form-group display-6 m-1">
               <label class="my-1" id="city-search">Search for a City:</label>
-              <input type="search" class="form-control" id="city-entered" aria-describedby="City Search Input" placeholder="Salt Lake City">
-              <button type="submit" class="btn btn-primary">Search</button>
+              <input type="text" class="form-control" id="cityInput" aria-label="City Searched" aria-describedby="City Search Input" placeholder="e.g. Salt Lake City">
+              <button type="submit" class="btn btn-primary search">Search</button>
+              <hr>
+              <p class='searchHistory '>Sandy</p>
             </div>
         </form>
         <div class="col-8 border">
           <div class="display-6 m-1">Current Conditions:</div>
-            <div class="date-container">
-              <div class="time" id="time">
-                12:30 <span id="am-pm">PM</span>
-              </div>
-              <div class="date" id="date">
-                Monday, 24 May
-              </div>
-              <div class="others" id="current-weather-items">
-              <div class="weather-item">
-                <div>Temp</div>
+          <div class="date-container currentDisplay">
+            <div class="city" id="city">
+              <div>Salt Lake City</div>
+            </div>
+            <div class="date" id="date">
+              Monday, 24 May
+            </div>
+            <div class="weather-item temp">
+              <div>Temp:
                 <div>95.2%</div>
               </div>
-              <div class="weather-item">
-                <div>Wind Speed</div>
+            </div>
+            <div class="weather-item wind">
+              <div>Wind Speed:
                 <div>12</div>
               </div>
-              <div class="weather-item">
-                <div>Humidity</div>
+            </div>
+            <div class="weather-item humidity">
+              <div>Humidity:
                 <div>42%</div>
               </div>
-            <div class="weather-item">
-              <div>UV Index</div>
-              <div>.47</div>
+            </div>
+            <div class="weather-item uv">
+              <div>UV Index:
+                <div>.47</div>
+              </div>
             </div>
           </div>
           <div class="row">
