@@ -13,6 +13,7 @@
     <header class="container">
       <div class="row bg-primary text-white text-center" id="topHeader">
         <h2 class="col-12 display-2"> Weather Dashboard</h2>
+        <p id="currentDay" class="lead mt-2"></p>
       </div>
     </header>
     <main class="container">
@@ -23,37 +24,34 @@
               <input type="text" class="form-control" id="cityInput" aria-label="City Searched" aria-describedby="City Search Input" placeholder="e.g. Salt Lake City">
               <button type="submit" class="btn btn-primary search">Search</button>
               <hr>
-              <p class='searchHistory '>Sandy</p>
+              <small class='searchHistory text-muted'>Sandy</small>
             </div>
         </form>
         <div class="col-8 border">
           <div class="display-6 m-1">Current Conditions:</div>
           <div class="date-container currentDisplay">
-            <div class="city" id="city">
-              <div>Salt Lake City</div>
+            <h3 class="city" id="city"></h3>
+            <h5 class="description"></h5>
+            <img src='' alt='weather-icon' class='icon' />
+            <div class="weather-item">
+              <h6>Temp:
+                <small class="temp"></small>
+              </h6>
             </div>
-            <div class="date" id="date">
-              Monday, 24 May
+            <div class="weather-item">
+              <h6>Wind Speed:
+                <small class="wind"></small>
+              </h6>
             </div>
-            <div class="weather-item temp">
-              <div>Temp:
-                <div>95.2%</div>
-              </div>
-            </div>
-            <div class="weather-item wind">
-              <div>Wind Speed:
-                <div>12</div>
-              </div>
-            </div>
-            <div class="weather-item humidity">
-              <div>Humidity:
-                <div>42%</div>
-              </div>
+            <div class="weather-item">
+              <h6>Humidity:
+                <small class="humidity"></small>
+              </h6>
             </div>
             <div class="weather-item uv">
-              <div>UV Index:
-                <div>.47</div>
-              </div>
+              <h6>UV Index:
+                <small>.47</small>
+              </h6>
             </div>
           </div>
           <div class="row">
@@ -66,6 +64,9 @@
     </main>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/lib/moment.min.js"></script>
   </body>
 </html>
