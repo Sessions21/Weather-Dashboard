@@ -18,11 +18,11 @@
     </header>
     <main class="container">
       <div class="row">
-        <form class="col-4 border search">
+        <form class="col-4 border" id="search">
             <div class="form-group display-6 m-1">
               <label class="my-1" id="city-search">Search for a City:</label>
               <input type="text" class="form-control search-bar" id="cityInput" aria-label="City Searched" aria-describedby="City Search Input" placeholder="e.g. Salt Lake City">
-              <button type="button" class="btn btn-primary search">Search</button>
+              <button type="button" class="btn btn-primary">Search</button>
               <hr>
               <small class='searchHistory text-muted'>Sandy</small>
             </div>
@@ -59,9 +59,7 @@
           <div class="row">
             <div class="col-12 border-top">
               <div class="display-6">Forecast:</div>
-              <div class="row" id="five-day-forecast">
-                <h2 class="col-12" id="forecast"></h2>
-                <div class="d-flex" id="five-days"></div>
+              <div class="row" id="five-day">
               </div>
             </div>
           </div>

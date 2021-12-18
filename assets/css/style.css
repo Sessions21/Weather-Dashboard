@@ -4,22 +4,20 @@
 }
 
 /*span weather element conditions for uv index*/
-span.severe {
+.severe {
   padding: 3px;
   background-color: red;
   color: var(--primary);
 }
 
-span.moderate {
+.moderate {
   padding: 3px;
   background-color: orange;
   color: var(--primary);
 }
 
-span.favorable {
+.favorable {
   padding: 3px;
   background-color: green;
   color: var(--primary);
 }
-
-/*end of uv index span styles*/
