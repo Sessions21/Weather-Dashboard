@@ -3,12 +3,7 @@ var searchHistory;
 var weather = {
   apikey: "6dfa15736b70227566594b9d43d5c411",
   fetchWeather: function (city) {
-    fetch (
-      "https://api.openweathermap.org/data/2.5/weather?q=" 
-      + city 
-      + "&units=imperial&appid=" 
-      + this.apikey
-
+    fetch ("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + this.apikey
     ).then((response) => response.json())
     .then((data) => this.displayWeather(data));
   },
@@ -21,7 +16,7 @@ var weather = {
     document.querySelector(".city").innerText = name;
     document.querySelector(".description").innerText = description;
     document.querySelector(".icon").src = "https://openweathermap.org/img/wn/"+ icon + "@2x.png";
-    document.querySelector(".temp").innerText = temp + "F";
+    document.querySelector(".temp").innerText = temp + "°F";
     document.querySelector(".humidity").innerText = humidity +"%";
     document.querySelector(".wind").innerText = speed +"mph";
     //call for UV Index variable
@@ -40,6 +35,7 @@ var weather = {
 var getUvIndex = function (lat, lon) {
   var apiKey2 = "6dfa15736b70227566594b9d43d5c411";
   var apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,daily,minutely,alerts&appid=${apiKey2}`;
+  
   //fetch for the open weather map API with lat and lon parameters
   fetch(apiURL).then(function (response) {
     response.json().then(function (data) {
@@ -60,6 +56,7 @@ var getUvIndex = function (lat, lon) {
 };
 var fiveDayDiv = document.getElementById("five-day");
 
+// 5 Day Forecast Display
 var fiveDayForecast = function (lat, lon, apikey2) {
 var apiURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apikey2}`;
 fetch(apiURL).then(function (response) {
@@ -84,16 +81,21 @@ fetch(apiURL).then(function (response) {
       var dailyIcon = document.createElement("img");
       iconData = data.list[i].weather[0].icon;
       dailyIcon.setAttribute("src", "https://openweathermap.org/img/wn/"+ iconData + "@2x.png");
-      console.log(dailyIcon);
       dailyDiv.appendChild(dailyIcon);
 
-      var dailyTemp = document.createElement("div");
+      // DIsplay Temp
+      var dailyTemp = document.createElement("h6");
+      dailyTemp.innerHTML = "Temp: " + data.list[i].main.temp + "°F";
       dailyDiv.appendChild(dailyTemp);
 
+      // Display Wind
       var dailyWind = document.createElement("div");
+      dailyWind.innerHTML = "Wind: " + data.list[i].wind.speed + "mph";
       dailyDiv.appendChild(dailyWind);
 
+      // Display humidity
       var dailyHumid = document.createElement("div");
+      dailyHumid.innerHTML = "Humidity: " + data.list[i].main.humidity + "%";
       dailyDiv.appendChild(dailyHumid);
 
       i = i + 8
@@ -102,10 +104,17 @@ fetch(apiURL).then(function (response) {
 });
 }
 
+// adding event listener to search button
 document.querySelector("#search").addEventListener("click", function () {
   weather.search();
-  console.log("click")
 });
+
+//adding to localstorage and displaying
+document.getElementById('searchButton').addEventListener("click", function() {
+  localStorage.setItem('city', searchHistory);
+  document.getElementById('searchHistory').innerHTML += searchHistory;
+});
+
 
 // document.querySelector(".search-bar").addEventListener("keypress", function (event) {
 //     if (event.key === "enter") {
@@ -113,7 +122,7 @@ document.querySelector("#search").addEventListener("click", function () {
 //     }
 //   });
 
-  // weather.fetchWeather("Salt lake city");
+//weather.fetchWeather("Salt lake city");
 
 var timeDisplay = moment();
 var timeContainer = $("#currentDay");

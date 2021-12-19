@@ -22,48 +22,48 @@
             <div class="form-group display-6 m-1">
               <label class="my-1" id="city-search">Search for a City:</label>
               <input type="text" class="form-control search-bar" id="cityInput" aria-label="City Searched" aria-describedby="City Search Input" placeholder="e.g. Salt Lake City">
-              <button type="button" class="btn btn-primary">Search</button>
+              <button type="button" class="btn btn-primary" id="searchButton">Search</button>
               <hr>
-              <small class='searchHistory text-muted'>Sandy</small>
+              <div class='text-muted' id="searchHistory"></div>
             </div>
         </form>
-        <div class="col-8 border">
-          <div class="display-6 m-1">Current Conditions:</div>
-          <div class="date-container currentDisplay">
-            <h3 class="city" id="city"></h3>
-            <div class="flex">
-              <img src='' alt='weather-icon' class='icon' /> 
-              <h5 class="description"></h5> 
+        <section class="col-8 border">
+          <header class="display-6 m-1">Current Conditions:</header>
+            <div class="date-container currentDisplay">
+              <h3 class="city" id="city"></h3>
+              <div class="flex">
+                <img src='' alt='weather-icon' class='icon' /> 
+                <h5 class="description"></h5> 
+              </div>
+              <div class="weather-item mb-1">
+                <h4>Temp:
+                  <small class="temp"></small>
+                </h4>
+              </div>
+              <div class="weather-item">
+                <h5>Wind Speed:
+                  <small class="wind"></small>
+                </h5>
+              </div>
+              <div class="weather-item">
+                <h5>Humidity:
+                  <small class="humidity"></small>
+                </h5>
+              </div>
+              <div class="weather-item uv">
+                <h5>UV Index:
+                  <small id="uvi"></small>
+                </h5>
+              </div>
             </div>
-            <div class="weather-item mb-1">
-              <h4>Temp:
-                <small class="temp"></small>
-              </h4>
-            </div>
-            <div class="weather-item">
-              <h5>Wind Speed:
-                <small class="wind"></small>
-              </h5>
-            </div>
-            <div class="weather-item">
-              <h5>Humidity:
-                <small class="humidity"></small>
-              </h5>
-            </div>
-            <div class="weather-item uv">
-              <h5>UV Index:
-                <small id="uvi"></small>
-              </h5>
-            </div>
-          </div>
           <div class="row">
             <div class="col-12 border-top">
               <div class="display-6">Forecast:</div>
-              <div class="row" id="five-day">
+              <div class="row p-3 d-flex justify-content-between" id="five-day">
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </main>
     
