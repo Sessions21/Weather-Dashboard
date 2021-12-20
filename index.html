@@ -18,15 +18,18 @@
     </header>
     <main class="container">
       <div class="row">
-        <form class="col-4 border" id="search">
+        <section class="col-4 border" id="search">
             <div class="form-group display-6 m-1">
               <label class="my-1" id="city-search">Search for a City:</label>
               <input type="text" class="form-control search-bar" id="cityInput" aria-label="City Searched" aria-describedby="City Search Input" placeholder="e.g. Salt Lake City">
               <button type="button" class="btn btn-primary" id="searchButton">Search</button>
               <hr>
-              <div class='text-muted' id="searchHistory"></div>
+              <div class='text-muted' id="searchHistory">
+                <ul class='form-group add-city' id='searchList'>
+                </ul>
+              </div>
             </div>
-        </form>
+        </section>
         <section class="col-8 border">
           <header class="display-6 m-1">Current Conditions:</header>
             <div class="date-container currentDisplay">

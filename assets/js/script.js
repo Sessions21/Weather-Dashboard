@@ -1,5 +1,6 @@
 var weatherContainerEl = document.querySelector("#current-weather");
 var searchHistory;
+var cities = [];
 var weather = {
   apikey: "6dfa15736b70227566594b9d43d5c411",
   fetchWeather: function (city) {
@@ -24,9 +25,11 @@ var weather = {
   }, 
   search: function () {
     var cityInput = document.querySelector(".search-bar").value
-    searchHistory = cityInput
     this.fetchWeather(cityInput);
+
+    saveCitySearch(cityInput);
   },
+
 };
 
 
@@ -105,22 +108,54 @@ fetch(apiURL).then(function (response) {
 }
 
 // adding event listener to search button
-document.querySelector("#search").addEventListener("click", function () {
+document.querySelector("#cityInput").addEventListener("keypress", function (e) {
+  if (e.which == 13) {
+    document.querySelector("#searchButton").click();
+  }
+});
+
+document.querySelector("#searchButton").addEventListener("click", function() {
   weather.search();
 });
 
-//adding to localstorage and displaying
-document.getElementById('searchButton').addEventListener("click", function() {
-  localStorage.setItem('city', searchHistory);
-  document.getElementById('searchHistory').innerHTML += searchHistory;
-});
+//Adding search history
+
+// var searchList = document.getElementById('searchList');
+
+var createSearchEl = function (city){
+  var searchEl = document.createElement("li");
+      searchEl.innerHTML = city;
+      document.getElementById('searchList').appendChild(searchEl);
+};
 
 
-// document.querySelector(".search-bar").addEventListener("keypress", function (event) {
-//     if (event.key === "enter") {
-//       weather.search();
-//     }
-//   });
+var saveCitySearch = function (city) {
+    cities.push(city)
+    localStorage.setItem("city", JSON.stringify(cities));
+    createSearchEl(city);
+  };
+
+var loadCitySearch = function () {
+  var savedCities = localStorage.getItem("city");
+  console.log(savedCities);
+  if(!savedCities) {
+    return false;
+  }
+  console.log("saved cities found!");
+
+  savedCities = JSON.parse(savedCities);
+
+  for (var i = 0; i < savedCities.length; i++) {
+    createSearchEl(savedCities[i]);
+  };
+  document.getElementById("cityInput").value = savedCities[savedCities.length-1];
+  weather.search();
+};
+
+
+
+loadCitySearch();
+
 
 //weather.fetchWeather("Salt lake city");
 
