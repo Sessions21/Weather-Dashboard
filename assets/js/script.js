@@ -71,6 +71,9 @@ fetch(apiURL).then(function (response) {
 
       var dailyDiv = document.createElement("div");
       dailyDiv.classList.add("col-2");
+      dailyDiv.classList.add("border");
+      dailyDiv.classList.add("border-primary");
+      dailyDiv.classList.add("rounded");
       fiveDayDiv.appendChild(dailyDiv);
 
       // Display Date
