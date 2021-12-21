@@ -8,7 +8,7 @@ The Current Condition section includes a summary of the following:
 * Temperature
 * Wind Speed
 * Humidity
-* Current UV Index  
+* Current UV Index with a color display showing the severity  
 
 The 5-day Forecast section include the following:
 * Predicted Weather Summary,
@@ -28,5 +28,11 @@ Website URL: https://sessions21.github.io/Weather-Dashboard/
 
 
 ![Screenshot-of-website](assets/images/Weather-Dashboard.jpg)
+
+Tools Used:
+* JavaScript
+* JQuery
+* CSS/Bootstrap
+* API Calls to Openweather and momentJS
 
 
